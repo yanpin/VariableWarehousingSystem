@@ -1,15 +1,16 @@
-# Abstract
-Codemirror + Operational Transformation
+# 介紹
+國立台中科技大學資訊工程系，學生自製倉儲系統(Web)端。
 
-# Collorative Markdown Editor
+# 倉儲系統位置
 
 [Live Demo](http://52.37.139.168:3000/)
 
-# Installation Instruction
-`apt-get install python-software-properties`
+# 進度狀況(未完成)
+	* 統計模組 
+	* 修改模組
+	* 搜尋模組	
 
-`apt-add-repository ppa:chris-lea/node.js`
-
-`apt-get update`
-
-`npm install ot serve-static express socket.io`
+# 進階進度
+	* D3統計圖
+	* 版面修整
+	* 路由處理
