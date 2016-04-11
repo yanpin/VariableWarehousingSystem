@@ -1,0 +1,19 @@
+RewriteEngine on
+# 不管使用者輸入 http://mydomain.com.tw 或 http://www.mydomain.com.tw，
+#一律導向 http://www.mydomain.com.tw，以利日後程式處理 & SEO 集中
+
+RewriteCond %{HTTP_HOST} ^http://127.0.0.1/$ [NC]
+RewriteRule ^(.*)$ http://localhost/$1 [R=301,L]
+
+
+# 原本使用者進入首頁會連入 index.html/index.htm，改為強制導向 index.php
+RewriteCond %{REQUEST_URI} ^.*/index.html?$ [NC]
+RewriteRule ^(.*)$ /index.php [R=301,L]
+
+# 自訂 HTTP 404 頁面，當使用者發生 404 問題時移向專用搜尋頁，提供其他建議結果
+ErrorDocument 404 /VariableWarehousingSystem/404ERROR.php
+
+<Files .htaccess>
+    order allow,deny
+    deny from all
+</Files>
