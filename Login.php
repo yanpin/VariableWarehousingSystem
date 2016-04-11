@@ -76,7 +76,7 @@
   });
 </script>
 <?php
-    include("foot.php");
+    include("Foot.php");
 ?>
 </body>
 </html>

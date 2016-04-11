@@ -14,7 +14,7 @@
     <link href='css/uploadify.css' rel='stylesheet'>
     <link href='css/animate.min.css' rel='stylesheet'>
     <!-- Yan Pin Css File css.css -->
-    <link href='css.css' rel='stylesheet'>
+    <link href='css/css.css' rel='stylesheet'>
     
     <script src="bower_components/jquery/jquery.min.js"></script>
     <link rel="shortcut icon" href="img/favicon.ico">

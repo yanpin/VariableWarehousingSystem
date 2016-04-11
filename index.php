@@ -32,7 +32,7 @@
                             <?php
                                 //left Nav 
                                 //Use:The Main Function
-                                include("nav.php");
+                                include("Nav.php");
                             ?>                        
                         </ul>
                     </div>
@@ -57,12 +57,6 @@
                                 </div>
                             </div>
                             <div class="box-content">
-                                <script type="text/javascript">
-                                    Function (){
-                                            
-                                    }
-                                </script>
-                                
                                 <?php
                                     include("body/index.php");
                                 ?>
@@ -80,7 +74,7 @@
         </div>
     </div>
     <?php
-        include("foot.php");
+        include("Foot.php");
     ?>
 </body>
 </html>

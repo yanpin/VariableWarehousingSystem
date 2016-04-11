@@ -27,7 +27,7 @@
                           <div class="nav-sm nav nav-stacked"></div>
                           <ul class="nav nav-pills nav-stacked main-menu">
                               <?php
-                                  include("nav.php");
+                                  include("Nav.php");
                               ?>                        
                           </ul>
                       </div>
@@ -69,7 +69,7 @@
           </div>
       </div>
       <?php
-          include("foot.php");
+          include("Foot.php");
       ?>
   </body>
   </html>
