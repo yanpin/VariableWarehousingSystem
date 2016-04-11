@@ -3,7 +3,7 @@
 
 # 倉儲系統位置
 
-[Live Demo](http://52.37.139.168:3000/)
+[Live Demo](http://vot.topweb.io/)
 
 # 進度狀況(未完成)
 	* 統計模組 
