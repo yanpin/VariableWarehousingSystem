@@ -91,8 +91,8 @@
             
           if($ArrayMembrtype[$i] == 'text'){
             $content .= 
-            "<td width='10%' align='right' class='td_bg'>". $ArrayMembrName[$i] ."：</td>
-            <td width='40%' class='td_bg'>
+            "<td width='15%' align='right' class='td_bg'>". $ArrayMembrName[$i] ."：</td>
+            <td width='35%' class='td_bg'>
               <input name='name' type='text' id='". $ArrayMembrKeyName[$i] ."'/>
             </td>
             ";
@@ -100,8 +100,8 @@
             if($ArrayMembrKeyName[$i] == 'status'){
               $content .= 
               "
-              <td width='10%' align='right' class='td_bg'>". $ArrayMembrName[$i] ."：</td>
-              <td width='40%' class='td_bg'>
+              <td width='15%' align='right' class='td_bg'>". $ArrayMembrName[$i] ."：</td>
+              <td width='35%' class='td_bg'>
               <select id='". $ArrayMembrKeyName[$i] ."'>
                   <option value='現存'>現存</option>
                   <option value='借出'>借出</option>
@@ -113,8 +113,8 @@
             }else if($ArrayMembrKeyName[$i] == 'type'){
               $content .= 
               "
-              <td width='10%' align='right' class='td_bg'>". $ArrayMembrName[$i] ."：</td>
-              <td width='40%' class='td_bg'>
+              <td width='15%' align='right' class='td_bg'>". $ArrayMembrName[$i] ."：</td>
+              <td width='35%' class='td_bg'>
               <select id='". $ArrayMembrKeyName[$i] ."'>
                   <option value='零件'>零件</option>
                   <option value='設備'>設備</option>
@@ -127,9 +127,9 @@
 
          if(($i+1)%2==0 or ($i==$ArrayMembrNameCount-1)){
             if(($i==$ArrayMembrNameCount-1)){
-              $content .= "<td width='10%' class='td_bg'>
+              $content .= "<td width='15%' class='td_bg'>
                           </td>
-                          <td width='40%' class='td_bg'>
+                          <td width='35%' class='td_bg'>
                           </td>";
             }
             echo $Head;
@@ -139,16 +139,16 @@
           }
           if(($i==$ArrayMembrNameCount-1)){
             echo "
-            <td width='10%' align='right' class='td_bg'>
+            <td width='15%' align='right' class='td_bg'>
               <input type='hidden' name='action' value='insert'>
               <input class='btn btn-primary' type='button' name='button' id='button' value='提交' />
             </td>
-            <td width='40%' class='td_bg'>
+            <td width='35%' class='td_bg'>
               <input class='btn btn-primary' type='reset' name='button2' id='button2' value='重置' />
             </td>
-            <td width='10%' class='td_bg'>
+            <td width='15%' class='td_bg'>
             </td>
-            <td width='40%' class='td_bg'>
+            <td width='35%' class='td_bg'>
             </td>
             ";
           }

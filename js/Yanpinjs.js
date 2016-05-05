@@ -1,3 +1,4 @@
+var JsonData;
   function GetData(url, type, data, FunctinName){
     $.ajax({
       url: url,
@@ -29,29 +30,38 @@
           $(".breadcrumb").html("<div class='alert alert-success' role='alert'>成功新增!</div>");
         }else if(FunctinName == 'StockInquire'){
           var JdataSize = (Jdata.length-1);
-          console.log(Jdata);
+          JsonData = Jdata;
+          console.log(JsonData);
           var i = 0;
           for(i=0;i<=JdataSize;i++){
-            $("#DataTbody").append("<tr>");
-            
-            $("#DataTbody").append("<td>" + Jdata[i]['id'] + "</td>");
-            $("#DataTbody").append("<td>" + Jdata[i]['name'] + "</td>");
-            $("#DataTbody").append("<td>" + Jdata[i]['uid'] + "</td>");
+            // 
+            var TrData = 
+            "<tr id='detailed' test = '" + Jdata[i]['id'] + "'>" +
+              "<td>" + Jdata[i]['id'] + "</td>" +
+              "<td>" + Jdata[i]['name'] + "</td>" +
+              "<td>" + Jdata[i]['uid'] + "</td>" +
 
-            $("#DataTbody").append("<td>" + Jdata[i]['onlyid'] + "</td>");
-            $("#DataTbody").append("<td>" + Jdata[i]['property'] + "</td>");
-            $("#DataTbody").append("<td>" + Jdata[i]['status'] + "</td>");
-            
-            $("#DataTbody").append("<td>" + Jdata[i]['type'] + "</td>");
-            $("#DataTbody").append("<td>" + Jdata[i]['total'] + "</td>");
-            $("#DataTbody").append("<td>" + Jdata[i]['position'] + "</td>");
+              "<td>" + Jdata[i]['onlyid'] + "</td>" +
+              "<td>" + Jdata[i]['property'] + "</td>" +
+              "<td>" + Jdata[i]['status'] + "</td>" +
+              
+              "<td>" + Jdata[i]['type'] + "</td>" +
+              "<td>" + Jdata[i]['total'] + "</td>" +
+              "<td>" + Jdata[i]['position'] + "</td>" +
 
-            $("#DataTbody").append("<td>" + Jdata[i]['qrcode'] + "</td>");
-            $("#DataTbody").append("<td>" + Jdata[i]['rfidcode'] + "</td>");
-            $("#DataTbody").append("<td>" + Jdata[i]['remark'] + "</td>");
-            
-            $("#DataTbody").append("</tr>");
+              "<td>" + Jdata[i]['qrcode'] + "</td>" +
+              "<td>" + Jdata[i]['rfidcode'] + "</td>" +
+              "<td>" + Jdata[i]['remark'] + "</td>" +
+            "</tr>";
+
+
+            $("#DataTbody").append(TrData); 
+             
           }
+          $("tr#detailed").click(function(){
+            alert($(this).attr("test"));
+            //欸欸我在這裡啦
+          })
         }else if(FunctinName == 'RentalInquire'){
           var JdataSize = (Jdata.length-1);
           console.log(Jdata);
