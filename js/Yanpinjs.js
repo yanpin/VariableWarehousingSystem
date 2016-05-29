@@ -24,7 +24,7 @@ var JsonData;
               "<td>" + Jdata[i]['phone'] + "</td>" +
               "<td>" + Jdata[i]['nfctoken'] + "</td>"+
             "</tr>";
-            console.log(TrData);
+           
             $("#DataTbody").append(TrData);              
           }
         }else if(FunctinName == 'StockInquire'){
@@ -93,44 +93,95 @@ var JsonData;
           $(".breadcrumb").html("<div class='alert alert-success' role='alert'>成功新增!</div>");
         }
         $("#DataTbody").append("<div id = 'LiveShow' ></div>");
-        DataModify(Jdata, FunctinName);
+        ShowDataWin(Jdata, FunctinName);
         
       },
       error: function() {
         $(".breadcrumb").html("<div class='alert alert-danger' role='alert'>連線錯誤!</div>");
       }
     });
+    
   }
+  function ModifyAjax(){
+    $.ajax({
+      url: url,
+      type: type,
+      dataType: "json",
+      data:data,
+      success: function(Jdata) {
 
-  function DataModify(JsonData, FunctinName){
+      }
+  })
+  }
+  function ShowDataWin(JsonData, FunctinName){
     $("tr#detailed").click(function(){
-      //alert($(this).attr("test"));
+      console.log(DataId = $(this).attr("test"));
       console.log(JsonData);
       console.log(FunctinName);
-      //欸欸我在這裡啦          
-      // $("#LiveShow").html(
-      //   "<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>" +
-      //     "<div class='modal-dialog'>" +
-      //       "<div class='modal-content'>" +
-      //         "<div class='modal-header'>" +
-      //           "<button type='button' class='close' data-dismiss='modal'>" +
-      //             "<span aria-hidden='true'>&times;</span>" +
-      //             "<span class='sr-only'>Close</span>" +
-      //           "</button>" +
-      //           "<h4 class='modal-title' id='myModalLabel'>Modal title</h4>" +
-      //         "</div>" +
-      //         "<div class='modal-body'>" +
 
-      //         "</div>" +
-      //         "<div class='modal-footer'>" +
-      //           "<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>" +
-      //           "<button type='button' class='btn btn-primary'>Save changes</button>" +
-      //         "</div>" +
-      //       "</div>" +
-      //     "</div>" +
-      //   "</div>" 
-      // );
+
+      if(FunctinName == "MemberInquire"){
+        var ThArray =   [" #ID ", "帳號(學號)", "密碼",         "(學生/管理員)", "姓名", "信箱", "電話", "學生證卡號"];
+        var DataName =  ['id',  'username',   'userpassword', 'type',              'name', 'email','phone','nfctoken'];
+        var Inputtype = ['']; 
+        var Readonly =  ['readonly'];
+
+
+        //readonly/
+      }else if(FunctinName == "StockInquire"){
+        var ThArray =   [" #ID ", "名稱", "序號", "唯一碼", "財產標籤", "狀態",   "分類", "數量", "位置",     "QRCode", "RFIDCode", "備註"];
+        var DataName =  ["id",    'name', 'uid',  'onlyid', 'property', 'status', 'type', 'total','position', 'qrcode', 'rfidcode', 'remark'];
+        var Readonly =  ['readonly'];
+
       
+      }else if(FunctinName == "RentalInquire"){
+        var ThArray =   [" #ID ", "學生唯一碼",    "設備唯一碼",     "租借日期",   "歸還日期",    "租借數量", "備註"];
+        var DataName =  ["id",    'user_nfctoken', 'instock_onlyid', 'input_date', 'output_date', 'total',    'remark'];      
+        var InputType = [''];
+        var Readonly =  ['readonly', '', '', 'readonly'];
+      }
 
+      var i;
+      var BodyData = "";
+      for(i=1;i<=ThArray.length;i++){
+        
+
+        BodyData += 
+          "<div class='form-group'>" +
+            "<label for='inputPassword3' class='col-sm-2 control-label' style = 'padding-left: 0px; padding-right:0px;'>" + ThArray[i-1] + "</label>" +
+            "<div class='col-sm-10'>" +
+              "<input type='password' class='form-control' id='inputPassword3' placeholder='" + JsonData[DataId-1][DataName[i-1]] + "' " + Readonly[i-1] +">" +
+            "</div>" +
+          "</div>";
+      }
+      
+      
+      //欸欸我在這裡啦          
+      $("#LiveShow").html(
+        "<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>" +
+          "<div class='modal-dialog'>" +
+            "<div class='modal-content'>" +
+              "<div class='modal-header'>" +
+                "<button type='button' class='close' data-dismiss='modal'>" +
+                  "<span aria-hidden='true'>&times;</span>" +
+                  "<span class='sr-only'>Close</span>" +
+                "</button>" +
+                "<h4 class='modal-title' id='myModalLabel'>顯示 and 修改資料</h4>" +
+              "</div>" +
+              "<div class='modal-body'>" +
+                "<form class='form-horizontal'>" +                  
+                    BodyData +
+                "</form>" +
+              "</div>" +
+
+              "<div class='modal-footer'>" +
+                "<button type='button' class='btn btn-primary'>修改</button>" +
+                "<button type='button' class='btn btn-default' data-dismiss='modal'>取消</button>" +
+                
+              "</div>" +
+            "</div>" +
+          "</div>" +
+        "</div>" 
+      );
     })
   }
