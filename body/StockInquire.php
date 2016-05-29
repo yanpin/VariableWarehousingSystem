@@ -4,12 +4,12 @@
         'FunctionName':'ShowData',
         'TableName':'instock_table'
     };
-    GetData("body/API.php",'GET',Data,"StockInquire");
+    GetData("body/API.php",'GET',Data,"StockInquire");	 
   })
 </script>
 <table class="table table-striped">
   <thead>
-    <tr>
+    <tr style='width: 38p'>
 	    <th>#id</th>
 		<th>名稱</th> 
 		<th>序號</th> 
@@ -28,5 +28,6 @@
 	</tr>
   </thead>
   <tbody id="DataTbody">
+  
   </tbody>
 </table>
