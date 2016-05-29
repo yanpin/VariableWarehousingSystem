@@ -70,16 +70,16 @@
             
           if($ArrayMembrtype[$i] == 'text'){
             $content .= 
-            "<td width='15%' align='right' class='td_bg'>". $ArrayMembrName[$i] ."：</td>
-            <td width='35%' class='td_bg'>
+            "<td width='10%' align='right' class='td_bg'>". $ArrayMembrName[$i] ."：</td>
+            <td width='40%' class='td_bg'>
               <input name='name' type='text' id='". $ArrayMembrKeyName[$i] ."'/>
             </td>
             ";
           }elseif($ArrayMembrtype[$i] == 'select'){
             $content .= 
             "
-            <td width='15%' align='right' class='td_bg'>". $ArrayMembrName[$i] ."：</td>
-            <td width='35%' class='td_bg'>
+            <td width='10%' align='right' class='td_bg'>". $ArrayMembrName[$i] ."：</td>
+            <td width='40%' class='td_bg'>
             <select id='". $ArrayMembrKeyName[$i] ."'>
                 <option value='學生'>學生</option>
                 <option value='管理員'>管理員</option>
@@ -90,9 +90,9 @@
 
          if(($i+1)%2==0 or ($i==$ArrayMembrNameCount-1)){
             if(($i==$ArrayMembrNameCount-1)){
-              $content .= "<td width='15%' class='td_bg'>
+              $content .= "<td width='10%' class='td_bg'>
                           </td>
-                          <td width='35%' class='td_bg'>
+                          <td width='40%' class='td_bg'>
                           </td>";
             }
             echo $Head;
@@ -102,16 +102,16 @@
           }
           if(($i==$ArrayMembrNameCount-1)){
             echo "
-            <td width='15%' align='right' class='td_bg'>
+            <td width='10%' align='right' class='td_bg'>
               <input type='hidden' name='action' value='insert'>
               <input class='btn btn-primary' type='button' name='button' id='button' value='提交' />
             </td>
-            <td width='35%' class='td_bg'>
+            <td width='40%' class='td_bg'>
               <input class='btn btn-primary' type='reset' name='button2' id='button2' value='重置' />
             </td>
-            <td width='15%' class='td_bg'>
+            <td width='10%' class='td_bg'>
             </td>
-            <td width='35%' class='td_bg'>
+            <td width='40%' class='td_bg'>
             </td>
             ";
           }

@@ -98,10 +98,7 @@
     		}elseif ($ArrayGetPathData['FunctionName'] == "DeleteData") {
     			$this -> DeleteData($ArrayGetPathData, $ArrayTableData);
     		}elseif ($ArrayGetPathData['FunctionName'] == "ShowData") {
-
-    			
     			$this -> ShowData($ArrayGetPathData, $ArrayTableData, $SQLFieldData);
-
     		}elseif ($ArrayGetPathData['FunctionName'] == "RentalLend") {
     			$this -> RentalLend($ArrayGetPathData, $ArrayTableData, $SQLFieldData);
     		}
@@ -143,15 +140,14 @@
     		$ArrayOutput = Array();
 		    $TableName = $ArrayGetPathData['TableName'];
 		    
+		    if($ArrayTableData['input_date'] == NULL){
+		    	$ArrayTableData['input_date'] = Date("Y/m/d");
+		    }
+
   			$ArrayKey = array_keys($ArrayTableData);
 		    for($i=0; $i<=(count($ArrayTableData)-1); $i++){
 	    		if($i==0){
-	    			if($ArrayTableData['input_date'] == NULL){
-						$ArrayTableData['input_date'] = date("Y/m/d");
-					}
 	    			if($ArrayTableData[$ArrayKey[$i]] != NULL){
-	    			   	
-
 	    				$TableData = "'".$ArrayTableData[$ArrayKey[$i]]."'";
 	    			}else{
 	    				$TableData = "'NULL'";
@@ -160,8 +156,7 @@
 	    			$TableData = $TableData . ",'" . $ArrayTableData[$ArrayKey[$i]]."'";
 	    		}
 	    	}
-	    	
-
+		   	
 		   	$sql = 
    			"INSERT INTO `$TableName` 
 			($SQLFieldData) 
@@ -237,10 +232,10 @@
 		    $ArrayKey = array_keys($ArrayTableData);
 		    for($i=0; $i<=(count($ArrayTableData)-1); $i++){
 	    		if($i==0){
-	    			echo $TableData = "`". $ArrayKey[$i] . "`". " = '".$ArrayTableData[$ArrayKey[$i]]."'";			
+	    			$TableData = "`". $ArrayKey[$i] . "`". " = '".$ArrayTableData[$ArrayKey[$i]]."'";			
 	    		}elseif ($i!=0) {
 	    			
-	 				echo $TableData = $TableData .   " and `". $ArrayKey[$i] . "`". " = "  . "'" . $ArrayTableData[$ArrayKey[$i]]."'";
+	 				$TableData = $TableData .   " and `". $ArrayKey[$i] . "`". " = "  . "'" . $ArrayTableData[$ArrayKey[$i]]."'";
 	    			
 	    		}
 	    	}
@@ -249,7 +244,6 @@
 	    	}else{
 	    		$sql = "SELECT * FROM `$ArrayGetPathData[TableName]`";
 	    	}
-	    	//echo $sql;
 		   	$sql=$this->PDO->query($sql);  
 		    $i=0;
 		    while($result = $sql->fetch(PDO::FETCH_ASSOC)){    
@@ -341,7 +335,7 @@
 
 				"user_nfctoken" => 	@$_GET["user_nfctoken"],
 				"instock_onlyid"=>	@$_GET["instock_onlyid"],
-				"input_date" 	=>  @$_GET["input_date"],
+				"input_date" 	=> 	@$_GET["input_date"],
 				
 				"output_date" 	=> 	@$_GET["output_date"],
 				"total" 		=>	@$_GET["total"],
